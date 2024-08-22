@@ -1,4 +1,11 @@
 package vish.thinkhub.exception;
 
-public class StockQuoteException {
+public class StockQuoteException extends RuntimeException {
+    public StockQuoteException(String message) {
+        super(message);
+    }
+
+    public StockQuoteException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }

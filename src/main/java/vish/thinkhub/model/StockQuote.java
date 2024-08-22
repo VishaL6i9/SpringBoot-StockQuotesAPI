@@ -10,5 +10,13 @@ public class StockQuote {
     private BigDecimal percentageChange;
     private LocalDateTime timestamp;
 
-    // Constructor, getters, and setters
+    public StockQuote(String symbol, BigDecimal price, BigDecimal change, BigDecimal percentageChange, LocalDateTime timestamp) {
+        this.symbol = symbol;
+        this.price = price;
+        this.change = change;
+        this.percentageChange = percentageChange;
+        this.timestamp = timestamp;
+    }
+
+    // Getters and setters
 }
