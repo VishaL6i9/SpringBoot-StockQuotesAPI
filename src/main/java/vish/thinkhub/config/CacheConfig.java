@@ -1,4 +1,4 @@
-package vish.thinkhub.cache;
+package vish.thinkhub.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.cache.CacheManager;
