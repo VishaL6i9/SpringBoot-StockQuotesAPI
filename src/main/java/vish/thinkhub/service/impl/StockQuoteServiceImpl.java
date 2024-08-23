@@ -7,8 +7,7 @@ import vish.thinkhub.model.StockQuote;
 import vish.thinkhub.service.ExternalStockApiService;
 import vish.thinkhub.service.StockQuoteService;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
