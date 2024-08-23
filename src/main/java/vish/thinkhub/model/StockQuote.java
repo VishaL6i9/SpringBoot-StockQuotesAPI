@@ -18,5 +18,45 @@ public class StockQuote {
         this.timestamp = timestamp;
     }
 
-    // Getters and setters
+    // Getters
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public BigDecimal getChange() {
+        return change;
+    }
+
+    public BigDecimal getPercentageChange() {
+        return percentageChange;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    // Setters
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public void setChange(BigDecimal change) {
+        this.change = change;
+    }
+
+    public void setPercentageChange(BigDecimal percentageChange) {
+        this.percentageChange = percentageChange;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
 }

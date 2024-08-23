@@ -2,6 +2,7 @@ package vish.thinkhub.Controller;
 
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import vish.thinkhub.model.StockQuote;
 import vish.thinkhub.service.StockQuoteService;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import java.util.List;
 public class StockQuoteController {
 
     private final StockQuoteService stockQuoteService;
-
+    @Autowired
     public StockQuoteController(StockQuoteService stockQuoteService) {
         this.stockQuoteService = stockQuoteService;
     }
