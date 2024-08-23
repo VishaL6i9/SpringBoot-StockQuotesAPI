@@ -1,7 +1,10 @@
 package vish.thinkhub.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import vish.thinkhub.model.StockQuote;
+import vish.thinkhub.service.ExternalStockApiService;
 import vish.thinkhub.service.StockQuoteService;
 
 import java.math.BigDecimal;
@@ -12,21 +15,24 @@ import java.util.List;
 @Service
 public class StockQuoteServiceImpl implements StockQuoteService {
 
+    private final ExternalStockApiService externalStockApiService;
+
+    @Autowired
+    public StockQuoteServiceImpl(ExternalStockApiService externalStockApiService) {
+        this.externalStockApiService = externalStockApiService;
+    }
+
     @Override
+    @Cacheable(value = "stockQuotes", key = "#symbol")
     public StockQuote getQuoteBySymbol(String symbol) {
-        // TO DO: implement the logic to retrieve the stock quote by symbol
-        // For now, let's just return a dummy stock quote
-        StockQuote stockQuote = new StockQuote(symbol, BigDecimal.valueOf(100.0), BigDecimal.valueOf(0.0), BigDecimal.valueOf(0.0), LocalDateTime.now());
-        return stockQuote;
+        return externalStockApiService.fetchQuote(symbol);
     }
 
     @Override
     public List<StockQuote> getBatchQuotes(List<String> symbols) {
-        // TO DO: implement the logic to retrieve the batch quotes by symbols
-        // For now, let's just return a dummy list of stock quotes
         List<StockQuote> stockQuotes = new ArrayList<>();
         for (String symbol : symbols) {
-            StockQuote stockQuote = new StockQuote(symbol, BigDecimal.valueOf(100.0), BigDecimal.valueOf(0.0), BigDecimal.valueOf(0.0), LocalDateTime.now());
+            StockQuote stockQuote = externalStockApiService.fetchQuote(symbol);
             stockQuotes.add(stockQuote);
         }
         return stockQuotes;
