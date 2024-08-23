@@ -1,9 +1,5 @@
 package vish.thinkhub.service;
 
-
-
-
-
 import com.fasterxml.jackson.databind.JsonNode;
 import vish.thinkhub.exception.ExternalApiException;
 import vish.thinkhub.model.StockQuote;
@@ -36,6 +32,8 @@ public class ExternalStockApiService {
 
         String url = "/query?function=GLOBAL_QUOTE&symbol=" + symbol + "&apikey=" + apiKey;
 
+        logger.info("Making API request to: {}", url);
+
         return webClient.get()
                 .uri(url)
                 .retrieve()
@@ -45,6 +43,7 @@ public class ExternalStockApiService {
     }
 
     private Mono<StockQuote> parseResponse(JsonNode response) {
+        logger.info("API response: {}", response);
         JsonNode quoteNode = response.get("Global Quote");
 
         if (quoteNode == null || quoteNode.isEmpty()) {
