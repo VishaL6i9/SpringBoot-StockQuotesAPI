@@ -28,8 +28,8 @@ ThinkHub Stock Quote Service is a Spring Boot application that provides real-tim
 1. Ensure you have Java 22 and Maven installed on your system (binary included in project directory).
 2. Clone the repository: `git clone https://github.com/VishaL6i9/SpringBoot-StockQuotesAPI.git`
 3. Navigate to the project directory: `cd ThinkHub`
-4. Build the project: `mvn clean package`
-5. Run the application: `java -jar target/thinkhub-0.0.1-SNAPSHOT.jar`
+4. Build the project: `mvn clean package` 
+5. Run the application: `java -jar target/thinkhub-0.0.1-SNAPSHOT.jar` or `./mvnw spring-boot:run`
 
 ## Configuration
 
