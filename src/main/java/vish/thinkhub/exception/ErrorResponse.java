@@ -9,5 +9,4 @@ public class ErrorResponse {
         this.message = message;
     }
 
-    // Getters and setters
 }
