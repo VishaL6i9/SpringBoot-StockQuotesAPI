@@ -4,9 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class GlobalExceptionHandler {
+public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(StockQuoteException.class)
     public ResponseEntity<ErrorResponse> handleStockQuoteException(StockQuoteException ex) {
@@ -25,4 +26,5 @@ public class GlobalExceptionHandler {
         ErrorResponse error = new ErrorResponse("Internal Server Error", "An unexpected error occurred");
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
 }
