@@ -8,6 +8,10 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "redirect:/api/v1/stock-quotes";  // or any other appropriate page
+        return "redirect:/api/v1/stock-quotes";
+    }
+    @GetMapping("/error")
+    public String after_login() {
+        return "redirect:/api/v1/stock-quotes";
     }
 }
