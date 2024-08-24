@@ -39,7 +39,94 @@ Key configurations in `application.properties`:
 - `alphavantage.api.key`: Your Alpha Vantage API key (A working API is being used by default)
 - `spring.security.user.name` and `spring.security.user.password`: Credentials for basic auth (vish:6190)
 - Cache configurations
+- 
+**Directory Structure**
+========================
 
+Below is an overview of the directory structure for this project:
+
+```
+Folder PATH listing
+Volume serial number is 789B-4402
+C:.
+|   .gitignore
+|   application.log
+|   HELP.md
+|   mvnw
+|   mvnw.cmd
+|   pom.xml
+|   readme.md
+|   
++---.idea
+|       [collapsed]
+|
++---.mvn
+|       [collapsed]
+|
++---src
+|   +---main
+|   |   +---java
+|   |   |   \---vish
+|   |   |       \---thinkhub
+|   |   |           |   StockQuoteServiceApplication.java
+|   |   |           |
+|   |   |           +---cache
+|   |   |           |       StockQuoteCache.java
+|   |   |           |
+|   |   |           +---config
+|   |   |           |       CacheConfig.java
+|   |   |           |       SecurityConfig.java
+|   |   |           |       WebClientConfig.java
+|   |   |           |
+|   |   |           +---Controller
+|   |   |           |       StockQuoteController.java
+|   |   |           |
+|   |   |           +---exception
+|   |   |           |       ErrorResponse.java
+|   |   |           |       ExternalApiException.java
+|   |   |           |       GlobalExceptionHandler.java
+|   |   |           |       StockQuoteException.java
+|   |   |           |
+|   |   |           +---model
+|   |   |           |       StockQuote.java
+|   |   |           |
+|   |   |           \---service
+|   |   |               |   ExternalStockApiService.java
+|   |   |               |   StockQuoteService.java
+|   |   |               |
+|   |   |               \---impl
+|   |   |                       StockQuoteServiceImpl.java
+|   |   |
+|   |   \---resources
+|   |       |   application-test.properties
+|   |       |   application.properties
+|   |       |   logback.xml
+|   |       |
+|   |       +---logs
+|   |       |       log.txt
+|   |       |
+|   |       +---static
+|   |       \---templates
+|   \---test
+|       \---java
+    		\---vish
+        		\---thinkhub
+                	StockQuoteServiceApplicationTests.java
+
+|
+\---target
+    [collapsed]
+```
+
+| Directory | Description |
+| --- | --- |
+| `.idea` | IntelliJ IDEA configuration files |
+| `.mvn` | Maven configuration files |
+| `src` | Source code directory |
+| `src/main/java` | Java source code directory |
+| `src/main/resources` | Resource files (e.g. properties, XML) |
+| `src/test/java` | Test source code directory |
+| `target` | Build output directory |
 ## API Endpoints
 
 1. Get quote for a single symbol:
