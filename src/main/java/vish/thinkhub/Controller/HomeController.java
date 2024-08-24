@@ -11,7 +11,7 @@ public class HomeController {
         return "redirect:/api/v1/stock-quotes";
     }
     @GetMapping("/error")
-    public String after_login() {
-        return "redirect:/api/v1/stock-quotes";
+    public String handleApiRateExceeded() {
+        return "api-rate-exceeded";
     }
 }
